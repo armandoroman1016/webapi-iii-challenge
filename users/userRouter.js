@@ -13,8 +13,6 @@ router.post('/', validateUser, (req, res) => {
 
 //? create new post for user
 router.post('/:id/posts', validatePost, validateUserId, (req, res) => {
-    console.log(req.body)
-    console.log(req.params.id)
     const userPost = req.body
     userPost.user_id = req.params.id
     postsDb.insertPost(userPost)

@@ -2,7 +2,7 @@ const db = require('../data/dbConfig.js');
 
 module.exports = {
   get,
-  getById,
+  getPostById,
   insertPost,
   update,
   remove,
@@ -12,7 +12,7 @@ function get() {
   return db('posts');
 }
 
-function getById(id) {
+function getPostById(id) {
   return db('posts')
     .where({ id })
     .first();
