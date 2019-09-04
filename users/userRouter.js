@@ -39,8 +39,8 @@ router.get('/:id', validateUserId, (req, res) => {
 
 //? get posts from a single user
 router.get('/:id/posts', validateUserId, (req, res) => {
-    userDb.getUserPosts(Number(req.params.id))
-        .then( userPosts => res.status(200).json(user))
+    userDb.getUserPosts(req.params.id)
+        .then( userPosts => res.status(200).json(userPosts))
         .catch( err => res.status(500).json({message: 'We couldnt fetch this users posts, try again later.'}))
 });
 
