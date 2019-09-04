@@ -3,7 +3,7 @@ const db = require('../data/dbConfig.js');
 module.exports = {
   get,
   getById,
-  insert,
+  insertPost,
   update,
   remove,
 };
@@ -18,7 +18,7 @@ function getById(id) {
     .first();
 }
 
-function insert(post) {
+function insertPost(post) {
   return db('posts')
     .insert(post)
     .then(ids => {
