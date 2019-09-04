@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 router.get('/:id', validatePostId, (req, res) => {
     // console.log(typeof(Number(req.params.id)))
     postDb.getPostById(Number(req.params.id))
-        .then( post => post.status(200).json({message:'hello'}))
+        .then( post => res.status(200).json({post}))
         .catch( err => res.status(500).json({message: 'There was an error retrieving the post.'}))
 });
 

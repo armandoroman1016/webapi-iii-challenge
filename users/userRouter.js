@@ -61,7 +61,6 @@ router.put('/:id', validateUserId, (req, res) => {
 
 function validateUserId(req, res, next) {
     const { id } = req.params
-    if(req.method !== 'DELETE'){
     userDb.getById(id)
     .then( user => {
         if(user){
@@ -69,9 +68,7 @@ function validateUserId(req, res, next) {
         }else{
             res.status(400).json({message: "invalid user id"})
         }
-    })}else{
-        next()
-    }
+    })
 };
 
 function validateUser(req, res, next) {
